@@ -1,0 +1,23 @@
+<div class="form">
+    <form [formGroup]="loginForm" action="/user/login" method="POST" class="login-form" (ngSubmit)="login()">
+        <h2>Login</h2>
+        <mat-error *ngIf="error">
+            {{ error }}
+        </mat-error>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="email.touched && email.errors?.email || email.errors?.required">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="******">
+            <mat-error *ngIf="password.touched && password.errors?.required">
+                The password must be min 6 symbols!
+            </mat-error>
+        </mat-form-field>
+        <button mat-button color="primary" type="submit">Login</button>
+    </form>
+</div>
