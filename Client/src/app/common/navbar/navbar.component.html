@@ -1,0 +1,26 @@
+<ul class="navbar">
+    <ul class="left">
+        <li>
+            <a routerLink="/about" >Home</a>
+        </li>
+    </ul>
+    <div class="right">
+        <ul *ngIf="!user.isLoggedIn">
+            <li>
+                <a routerLink="/user/login">Login</a>
+            </li>
+            <li>
+                <a routerLink="/user/register">Register</a>
+            </li>
+        </ul>
+        <ul *ngIf="user.isLoggedIn">
+            <li>
+                <a routerLink="/about">Hi, {{ user.get.username }}</a>
+            </li>
+            <li>
+                <a (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</ul>
+<router-outlet></router-outlet>
