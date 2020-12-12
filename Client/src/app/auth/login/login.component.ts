@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -42,6 +41,7 @@ export class LoginComponent implements OnInit {
           if (!data.error) {
             this.authService.saveUserData({
               username: data.username,
+              isAdmin: data.isAdmin,
               email: data.email
             });
 

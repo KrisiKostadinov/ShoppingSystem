@@ -3,6 +3,9 @@
         <li>
             <a routerLink="/about" >Home</a>
         </li>
+        <li *ngIf="user.isLoggedIn">
+            <a routerLink="/product/all">Products</a>
+        </li>
     </ul>
     <div class="right">
         <ul *ngIf="!user.isLoggedIn">

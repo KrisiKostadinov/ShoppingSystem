@@ -1,0 +1,17 @@
+<div class="add-btn">
+    <a (click)="addProduct()" mat-button color="primary">Add new product</a>
+</div>
+<div class="all">
+    <div *ngIf="products.length == 0">
+        No products!
+    </div>
+    <div *ngFor="let product of products">
+        {{ product._id }}
+        <h2>
+            <a (click)="byId(product._id)">{{ product.name }}</a>
+        </h2>
+        <p>{{ product.description }}</p>
+        <span>{{ product.price }} лв.</span>
+
+    </div>
+</div>

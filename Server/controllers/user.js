@@ -25,7 +25,7 @@ module.exports = {
 
             const token = await jwt.sign({ user }, 'secret');
 
-            res.json({ token, username: user.username, email: user.email });
+            res.json({ token, username: user.username, email: user.email, isAdmin: user.isAdmin });
         },
 
         async register(req, res) {

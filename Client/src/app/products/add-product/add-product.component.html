@@ -1,0 +1,30 @@
+<div class="form">
+    <form [formGroup]="productForm" action="/product/add" method="POST" class="product-form" (ngSubmit)="add()">
+        <h2>Add new product</h2>
+        <mat-error *ngIf="error">
+            {{ error }}
+        </mat-error>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name" placeholder="Pesho" autofocus>
+            <mat-error *ngIf="name.touched && name.errors?.name || name.errors?.required">
+                This field is required!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea type="text" matInput formControlName="description" placeholder="******"></textarea>
+            <mat-error *ngIf="description.touched && description.errors?.required">
+                The description must be min 20 symbols!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Price</mat-label>
+            <input type="text" matInput formControlName="price" placeholder="20.00">
+            <mat-error *ngIf="price.touched && price.errors?.required">
+                This field is required!
+            </mat-error>
+        </mat-form-field>
+        <button mat-button color="primary" type="submit">Add product</button>
+    </form>
+</div>

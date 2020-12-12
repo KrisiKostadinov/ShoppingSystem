@@ -1,0 +1,13 @@
+<div *ngIf="product" class="product">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <span>{{ product.price }}</span>
+    <div *ngIf="user.get.isAdmin" class="btns">
+        <button mat-button (click)="delete()" color="warn">Delete</button>
+        <button mat-button (click)="edit(product._id)" color="accent">Edit</button>
+    </div>
+</div>
+<div *ngIf="isDeleting" class="deleting">
+    <button mat-button (click)="deleteConfirm(product._id)" color="accent">Confim</button>
+    <button mat-button (click)="deleteCancel()" color="warn">Cancel</button>
+</div>

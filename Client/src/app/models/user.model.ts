@@ -4,4 +4,5 @@ export class User {
     password: string;
     error?: string;
     token?: string;
+    isAdmin?: boolean;
 }

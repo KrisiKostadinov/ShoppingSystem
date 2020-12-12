@@ -11,6 +11,7 @@ import { AuthGuard } from './common/auth.guard';
 import { AuthInterceptor } from './common/auth.interceptor';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './common/navbar/navbar.component';
+import { ProductModule } from './products/product.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     CommonAppModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ProductModule,
   ],
   providers: [
     AuthGuard,

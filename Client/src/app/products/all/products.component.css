@@ -1,0 +1,15 @@
+.add-btn {
+    text-align: center;
+}
+
+.all {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 2em;
+    padding: 20px;
+}
+
+.all div {
+    width: 200px;
+    text-align: left;
+}
