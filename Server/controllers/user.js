@@ -14,7 +14,7 @@ module.exports = {
             const user = await User.findOne({ email });
 
             if(!user) {
-                return res.json({ error: 'This email does not exists!' });
+                return res.json({ error: 'The email or password is wrong!' });
             }
             
             const isCompares = await bcrypt.compare(password, user.password);
@@ -25,14 +25,14 @@ module.exports = {
 
             const token = await jwt.sign({ user }, 'secret');
 
-            res.json({ token, user });
+            res.json({ token, username: user.username, email: user.email });
         },
 
         async register(req, res) {
-            const { email, password } = req.body;
+            const { username, email, password } = req.body;
 
-            if(email == '' || password == '') {
-                return res.json({ error: 'The email and password is required!' });
+            if(email == '' || password == '' || username == '') {
+                return res.json({ error: 'The username, email and password is required!' });
             }
 
             const user = await User.findOne({ email });
@@ -44,9 +44,9 @@ module.exports = {
             const salt = await bcrypt.genSalt(10);
             const passwordHash = await bcrypt.hash(password, salt);
 
-            const createdUser = await User.create({ email, password: passwordHash });
+            const createdUser = await User.create({ username, email, password: passwordHash });
 
-            res.json(createdUser);
+            res.json({ createdUser });
         }
     }
 }
